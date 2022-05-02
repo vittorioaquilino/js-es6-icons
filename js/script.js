@@ -124,3 +124,39 @@ const iconArray = [
 		color: 'blue'
 	}
 ];
+
+const icon = document.getElementById("icon-container");
+
+iconContainer();
+
+function iconContainer() {
+	for(let i = 0; i < iconArray.length; i++){
+
+		// <!-- <div class="icon">
+		// 		<i class="fas fa-cat"></i>
+		// 		<p>CAT</p>
+		// </div> -->
+
+		// creo il div per inserire le icone
+		const gridIcon = document.createElement("div");
+		gridIcon.classList.add("icon");
+		gridIcon.classList.add(iconArray[i].color);
+		gridIcon.classList.add(iconArray[i].name);
+
+		// creo il div i
+		const gridAwesome = document.createElement("i");
+		// inserisco l'icona presa dall'oggetto
+		gridAwesome.innerHTML = '<i class="fas fa-' + iconArray[i].name + '"></i>';
+
+		// creo la p
+		const gridWord = document.createElement("p");
+		gridWord.innerHTML = '<p>' + iconArray[i].name + '</p>'; // <p>cat</p>
+		console.log(gridWord);
+
+		gridIcon.append(gridAwesome);
+		gridIcon.append(gridWord);
+		icon.append(gridIcon);
+	}
+}
+
+console.log(icon);
